@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>יחידת מתוו"ה | משרד הביטחון</title>
+<meta name="description" content="יחידת מתוו&quot;ה במשרד הביטחון – ניהול נכסי מערכת הביטחון, תכנון, שיווק מחנות, מיסוי מוניציפלי, הגנת הסביבה ותשתיות.">
+<link rel="icon" href="images/mod-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1c5d8e;
+    --navy: #0f2f4c;
+    --sky: #e8f1f8;
+    --gold: #c9a227;
+    --text: #1d2733;
+    --muted: #5b6b7c;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Heebo", Arial, sans-serif; color: var(--text); line-height: 1.7; background: #fff; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--blue); }
+  .wrap { width: min(1180px, 92%); margin-inline: auto; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  /* Top bar + header */
+  .topbar { background: var(--navy); color: #cfe0ee; font-size: .85rem; }
+  .topbar .wrap { display: flex; justify-content: space-between; padding: .4rem 0; }
+  .topbar a { color: #fff; text-decoration: none; }
+  header { position: sticky; top: 0; z-index: 10; background: #fff; box-shadow: 0 2px 12px rgba(15,47,76,.08); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 0; }
+  .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; color: var(--navy); }
+  .brand img { width: 52px; height: 52px; }
+  .brand strong { display: block; font-size: 1.35rem; font-weight: 800; line-height: 1.1; }
+  .brand span { font-size: .85rem; color: var(--muted); }
+  nav ul { list-style: none; display: flex; gap: 1.6rem; padding: 0; }
+  nav a { text-decoration: none; color: var(--navy); font-weight: 500; padding: .3rem 0; border-bottom: 2px solid transparent; }
+  nav a:hover { border-color: var(--blue); color: var(--blue); }
+  #menu-toggle, .menu-btn { display: none; }
+
+  /* Hero */
+  .hero { position: relative; min-height: 78vh; display: grid; align-items: center; color: #fff;
+          background: linear-gradient(270deg, rgba(15,47,76,.92) 0%, rgba(28,93,142,.75) 45%, rgba(28,93,142,.15) 100%),
+                      url("images/hero-kirya.jpg") center/cover no-repeat; }
+  .hero .wrap { padding: 5rem 0; }
+  .hero .crumbs { font-size: .9rem; opacity: .85; margin-bottom: 1rem; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; line-height: 1.1; }
+  .hero h1 small { display: block; font-size: .38em; font-weight: 400; margin-top: .6rem; opacity: .9; }
+  .hero p { max-width: 560px; font-size: 1.15rem; margin: 1.4rem 0 2rem; opacity: .95; }
+  .btn { display: inline-block; padding: .85rem 1.8rem; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-ghost { border: 2px solid #fff; color: #fff; margin-inline-start: .6rem; }
+
+  /* Stats */
+  .stats { background: var(--navy); color: #fff; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; padding: 2rem 0; }
+  .stats b { display: block; font-size: 2.2rem; color: var(--gold); font-weight: 800; }
+  .stats span { font-size: .95rem; opacity: .85; }
+
+  /* Sections */
+  section { padding: 5rem 0; }
+  .eyebrow { color: var(--blue); font-weight: 700; letter-spacing: .05em; font-size: .9rem; }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--navy); margin: .3rem 0 1rem; line-height: 1.25; }
+  h2::after { content: ""; display: block; width: 64px; height: 4px; background: var(--gold); margin-top: .8rem; border-radius: 2px; }
+  .lead { color: var(--muted); font-size: 1.1rem; max-width: 720px; }
+
+  .about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: center; }
+  .about img { border-radius: var(--radius); box-shadow: 0 20px 40px rgba(15,47,76,.18); aspect-ratio: 4/3; object-fit: cover; }
+  .about p + p { margin-top: 1rem; }
+
+  /* Divisions */
+  .alt { background: var(--sky); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 2.5rem; }
+  .card { background: #fff; border-radius: var(--radius); padding: 2rem; box-shadow: 0 6px 20px rgba(15,47,76,.07);
+          border-top: 4px solid var(--blue); transition: transform .2s, box-shadow .2s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(15,47,76,.14); }
+  .card .icon { width: 54px; height: 54px; border-radius: 12px; background: var(--sky); display: grid; place-items: center; font-size: 1.6rem; margin-bottom: 1rem; }
+  .card h3 { color: var(--navy); font-size: 1.25rem; margin-bottom: .5rem; }
+  .card p { color: var(--muted); }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 2.5rem; }
+  .project { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 3/4; color: #fff; }
+  .project img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .project:hover img { transform: scale(1.06); }
+  .project div { position: absolute; inset: auto 0 0 0; padding: 1.6rem; background: linear-gradient(transparent, rgba(15,47,76,.95)); }
+  .project h3 { font-size: 1.4rem; }
+  .project p { font-size: .95rem; opacity: .9; }
+
+  /* Banner */
+  .banner { color: #fff; text-align: center;
+            background: linear-gradient(rgba(15,47,76,.85), rgba(15,47,76,.85)), url("images/solar.jpg") center/cover fixed; }
+  .banner h2 { color: #fff; } .banner h2::after { margin-inline: auto; }
+  .banner .lead { color: #dbe7f1; margin: 0 auto 2rem; }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .services ul { list-style: none; padding: 0; margin-top: 1.5rem; }
+  .services li { padding: 1rem 1.2rem; border-radius: 10px; background: #fff; margin-bottom: .8rem; border-inline-start: 4px solid var(--gold);
+                 box-shadow: 0 3px 10px rgba(15,47,76,.06); }
+  .services li b { color: var(--navy); display: block; }
+  .services li span { color: var(--muted); font-size: .95rem; }
+  .services img { border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; }
+
+  /* Footer */
+  footer { background: var(--navy); color: #b9cbdb; padding: 3.5rem 0 1.5rem; font-size: .95rem; }
+  footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+  footer h4 { color: #fff; margin-bottom: .8rem; }
+  footer a { color: #dbe7f1; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer ul { list-style: none; padding: 0; }
+  footer li { margin-bottom: .4rem; }
+  .credits { border-top: 1px solid rgba(255,255,255,.12); margin-top: 2.5rem; padding-top: 1.2rem; font-size: .8rem; opacity: .75; }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .menu-btn { display: block; font-size: 1.8rem; cursor: pointer; color: var(--navy); }
+    nav { position: absolute; top: 100%; inset-inline: 0; background: #fff; box-shadow: 0 8px 16px rgba(0,0,0,.08); display: none; }
+    nav ul { flex-direction: column; gap: 0; padding: .5rem 4%; }
+    nav li a { display: block; padding: .8rem 0; }
+    #menu-toggle:checked ~ nav { display: block; }
+    .about, .services { grid-template-columns: 1fr; }
+    .grid, .projects { grid-template-columns: 1fr 1fr; }
+    .stats .wrap { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    footer .cols { grid-template-columns: 1fr; }
+    .banner { background-attachment: scroll; }
+  }
+  @media (max-width: 560px) {
+    .grid, .projects { grid-template-columns: 1fr; }
+    .project { aspect-ratio: 4/3; }
+    .btn-ghost { margin: .8rem 0 0; }
+    .topbar span:last-child { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>משרד הביטחון · אגף מבצעים לוגיסטיים ונכסים</span>
+    <span><a href="https://www.mod.gov.il" target="_blank" rel="noopener">לאתר משרד הביטחון ←</a></span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="images/mod-logo.svg" alt="סמל משרד הביטחון">
+      <div><strong>יחידת מתוו"ה</strong><span>משרד הביטחון</span></div>
+    </a>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-btn" aria-label="תפריט">☰</label>
+    <nav aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="#about">אודות</a></li>
+        <li><a href="#divisions">חטיבות</a></li>
+        <li><a href="#projects">פינוי מחנות</a></li>
+        <li><a href="#services">שירותים</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="crumbs">משרד הביטחון › אגפים › אגף מבצעים לוגיסטיים ונכסים › יחידת מתוו"ה</div>
+      <h1>יחידת מתוו"ה<small>תכנון, נכסים ותשתיות למערכת הביטחון</small></h1>
+      <p>מובילים את ניהול נכסי מערכת הביטחון וצה"ל, את תכנון המרחב, ואת העתקת מחנות צה"ל מהמרכז לפריפריה – לטובת הביטחון ולטובת המדינה.</p>
+      <a class="btn btn-gold" href="#divisions">החטיבות שלנו</a>
+      <a class="btn btn-ghost" href="#contact">צור קשר</a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div><b>2012</b><span>שנת הקמת היחידה</span></div>
+      <div><b>6</b><span>תחומי פעילות</span></div>
+      <div><b>מרכז ← דרום</b><span>העתקת מחנות לפריפריה</span></div>
+      <div><b>מים · אנרגיה</b><span>תשתיות והגנת הסביבה</span></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="eyebrow">אודות היחידה</div>
+        <h2>מי אנחנו</h2>
+        <p class="lead">יחידת מתוו"ה הוקמה ביולי 2012 במסגרת אגף מבצעים לוגיסטיים ונכסים במשרד הביטחון.</p>
+        <p>היחידה אחראית על ניהול כלל נכסי מערכת הביטחון וצה"ל, על הובלת תהליכי תכנון מרחבי וקידום הליכים סטטוטוריים, על הסדרת המיסוי המוניציפלי מול הרשויות המקומיות, ועל קידום פרויקטים בתחומי הגנת הסביבה, מים, אנרגיה ותברואה.</p>
+        <p>בנוסף, מובילה היחידה את שיווק והעתקת מחנות צה"ל ממרכז הארץ לפריפריה – מהלך המשחרר קרקעות לשימוש אזרחי ומאפשר הקמת פרויקטים חדשים.</p>
+      </div>
+      <img src="images/kirya-begin.jpg" alt="קריית הממשלה ומשרד הביטחון בתל אביב" loading="lazy">
+    </div>
+  </section>
+
+  <section id="divisions" class="alt">
+    <div class="wrap">
+      <div class="eyebrow">מבנה היחידה</div>
+      <h2>חטיבות היחידה</h2>
+      <p class="lead">היחידה פועלת באמצעות חטיבות מקצועיות, שכל אחת מהן אחראית על תחום ליבה בניהול המרחב והנכסים של מערכת הביטחון.</p>
+      <div class="grid">
+        <article class="card"><div class="icon">📐</div><h3>תכנון</h3><p>הובלת תהליכי תכנון מרחבי וקידום הליכים סטטוטוריים עבור מחנות ושטחי מערכת הביטחון.</p></article>
+        <article class="card"><div class="icon">🏗️</div><h3>שיווק מחנות</h3><p>שיווק והעתקת מחנות צה"ל מהמרכז לפריפריה, שחרור קרקעות לאזרחות והקמת פרויקטים חדשים.</p></article>
+        <article class="card"><div class="icon">🗂️</div><h3>נכסים</h3><p>ניהול כלל נכסי מערכת הביטחון וצה"ל – רישום, הסדרה וניהול שוטף של המקרקעין.</p></article>
+        <article class="card"><div class="icon">🏛️</div><h3>מיסוי מוניציפלי</h3><p>הסדרת ארנונה והיטלים מול הרשויות המקומיות ברחבי הארץ.</p></article>
+        <article class="card"><div class="icon">🌿</div><h3>הגנת הסביבה</h3><p>קידום פרויקטים סביבתיים ושמירה על איכות הסביבה במחנות ובשטחי מערכת הביטחון.</p></article>
+        <article class="card"><div class="icon">⚡</div><h3>תשתיות</h3><p>קידום פרויקטים בתחומי מים, אנרגיה ותברואה עבור צה"ל ומערכת הביטחון.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="eyebrow">פינוי והעתקת מחנות</div>
+      <h2>משחררים קרקע, בונים עתיד</h2>
+      <p class="lead">היחידה מובילה את פינוי מחנות צה"ל ממרכז הארץ, ביניהם מחנות מרכזיים כמו סירקין, צריפין ותל השומר, והעתקתם למחנות חדשים ומתקדמים בפריפריה.</p>
+      <div class="projects">
+        <article class="project"><img src="images/sirkin.jpg" alt="מחנה סירקין, פתח תקווה" loading="lazy"><div><h3>מחנה סירקין</h3><p>פתח תקווה</p></div></article>
+        <article class="project"><img src="images/tzrifin.jpg" alt="שער יפו במחנה צריפין" loading="lazy"><div><h3>מחנה צריפין</h3><p>שפלת יהודה</p></div></article>
+        <article class="project"><img src="images/tel-hashomer.jpg" alt="מחנה דורי, תל השומר" loading="lazy"><div><h3>מחנה תל השומר</h3><p>רמת גן</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold)">הגנת הסביבה ותשתיות</div>
+      <h2>מים, אנרגיה ותברואה</h2>
+      <p class="lead">קידום פרויקטים של תשתיות ואנרגיה מתחדשת, ושמירה על הסביבה בשטחי מערכת הביטחון.</p>
+      <a class="btn btn-gold" href="#divisions">לחטיבות היחידה</a>
+    </div>
+  </section>
+
+  <section id="services" class="alt">
+    <div class="wrap services">
+      <div>
+        <div class="eyebrow">שירותים</div>
+        <h2>שירותים לציבור ולרשויות</h2>
+        <ul>
+          <li><b>רשויות מקומיות</b><span>הסדרת ארנונה, היטלים ומיסוי מוניציפלי.</span></li>
+          <li><b>יזמים ומשקיעים</b><span>מידע על שיווק מחנות וקרקעות המשתחררות לשימוש אזרחי.</span></li>
+          <li><b>מוסדות תכנון</b><span>תיאום הליכים סטטוטוריים ותוכניות מתאר.</span></li>
+          <li><b>גורמי תשתית</b><span>תיאום פרויקטים של מים, אנרגיה ותברואה.</span></li>
+        </ul>
+      </div>
+      <img src="images/construction.jpg" alt="פרויקט בנייה של משרד הביטחון" loading="lazy">
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#top" style="color:#fff">
+          <img src="images/mod-logo.svg" alt="" style="filter:brightness(0) invert(1)">
+          <div><strong>יחידת מתוו"ה</strong><span style="color:#b9cbdb">משרד הביטחון</span></div>
+        </a>
+        <p style="margin-top:1rem">אגף מבצעים לוגיסטיים ונכסים, משרד הביטחון, הקריה, תל אביב.</p>
+      </div>
+      <div>
+        <h4>ניווט</h4>
+        <ul>
+          <li><a href="#about">אודות</a></li>
+          <li><a href="#divisions">חטיבות</a></li>
+          <li><a href="#projects">פינוי מחנות</a></li>
+          <li><a href="#services">שירותים</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>יצירת קשר</h4>
+        <ul>
+          <li><a href="https://www.mod.gov.il" target="_blank" rel="noopener">אתר משרד הביטחון</a></li>
+          <li><a href="https://mod.gov.il/%D7%90%D7%92%D7%A4%D7%99%D7%9D/%D7%90%D7%92%D7%A3-%D7%9E%D7%91%D7%A6%D7%A2%D7%99%D7%9D-%D7%9C%D7%95%D7%92%D7%99%D7%A1%D7%98%D7%99%D7%99%D7%9D-%D7%95%D7%A0%D7%9B%D7%A1%D7%99%D7%9D/%D7%99%D7%97%D7%99%D7%93%D7%AA-%D7%9E%D7%AA%D7%95%D7%95%D7%94" target="_blank" rel="noopener">דף היחידה באתר משרד הביטחון</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="credits">
+      © משרד הביטחון – יחידת מתוו"ה.
+      קרדיט תמונות: Wikimedia Commons –
+      <a href="https://commons.wikimedia.org/wiki/File:2013-04-26_The_Kirya_Tel_Aviv_2013.jpg">הקריה 2013</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:20180320-kirya-164056-begin-way-tel-aviv-march-2018.jpg">דרך בגין</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:116411_sirkin_camp_petah_tikva_PikiWiki_Israel.jpg">מחנה סירקין (PikiWiki)</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:Jaffa_gate_in_Tzrifin_(Yadin)_camp.jpg">צריפין</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:Dori_Camp_-_Tel_Hashomer,_Ramat_Gan_May_2024_01.jpg">מחנה דורי</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:Elifaz-Solar-Field.jpg">שדה סולארי</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:Ministry_of_Defense_bomb_shelter_construction_in_Shlomi_(1001705304983-1693).jpg">בנייה בשלומי</a>,
+      <a href="https://commons.wikimedia.org/wiki/File:MisradHabitahonSymbol.svg">סמל משרד הביטחון</a>.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
